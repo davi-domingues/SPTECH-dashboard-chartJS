@@ -1,11 +1,108 @@
 <!DOCTYPE html>
+
+
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - ChartJS</title>
 </head>
-<body>
-    
+
+<body style="display:flex">
+
+    <div>
+        <canvas id="myChart-Linhas" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart-Barras" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+
 </body>
+
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    const labelsLinha = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+    
+    const dataLinha = {
+        labels: labelsLinha,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgb(255, 0, 0)',
+            data: [30, 29, 28, 25, 22, 23]
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [80, 82, 80, 85, 80, 83]
+        }
+        ]
+    };
+    
+    const configLinha = {
+        type: 'line',
+        data: dataLinha,
+        options: {}
+    };
+    
+    const chartLinha = new Chart (
+        document.getElementById('myChart-Linhas'),
+        configLinha
+    );
+
+</script>
+    
+<script>
+
+    const labelsBarra = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ];
+    
+    const dataBarra = {
+        labels: labelsBarra,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgb(255, 0, 0)',
+            data: [20, 24, 27, 23, 20, 18]
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [90, 89, 93, 87, 88, 82]
+        }
+        ]
+    };
+    
+    const configBarra = {
+        type: 'bar',
+        data: dataBarra,
+        options: {}
+    };
+
+    const chartBarra = new Chart (
+        document.getElementById('myChart-Barras'),
+        configBarra
+    );
+    
+</script>
